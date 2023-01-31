@@ -1,4 +1,4 @@
-Step 1
+Step 1 // Question 1
 
 user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050
 $ git clone https://github.com/JayaniUdara/E-store-App.git
@@ -33,7 +33,7 @@ $ git commit -am "we are commiting the inital content"
  1 file changed, 1 insertion(+)
  create mode 100644 merge.txt
 
-Step 2
+Step 2 //Question 2
 
 user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
 $ git checkout -b new_branch_to_merge_later
@@ -49,7 +49,7 @@ warning: in the working copy of 'merge.txt', LF will be replaced by CRLF the nex
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 
-Step 3
+Step 3 //Question 3
 
 user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (new_branch_to_merge_later)
 $ git checkout master
@@ -64,7 +64,7 @@ warning: in the working copy of 'merge.txt', LF will be replaced by CRLF the nex
 [master 9f14b01] appended content to merge.txt
  1 file changed, 1 insertion(+)
 
-Step 4
+Step 4 //Question 4
 
 user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
 $ git merge new_branch_to_merge_later
