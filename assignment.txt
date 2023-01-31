@@ -1,0 +1,73 @@
+Step 1
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050
+$ git clone https://github.com/JayaniUdara/E-store-App.git
+Cloning into 'E-store-App'...
+remote: Enumerating objects: 147, done.
+remote: Counting objects: 100% (147/147), done.
+remote: Compressing objects: 100% (109/109), done.
+remote: Total 147 (delta 17), reused 144 (delta 17), pack-reused 0
+Receiving objects: 100% (147/147), 81.40 KiB | 2.26 MiB/s, done.
+Resolving deltas: 100% (17/17), done.
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050
+$ mkdir git-merge-test
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050
+$ cd git-merge-test
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test
+$ git init .
+Initialized empty Git repository in C:/Users/user/Desktop/2019csc050/git-merge-test/.git/
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
+$ echo "this is some content to mess with" > merge.txt
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
+$ git add merge.txt
+warning: in the working copy of 'merge.txt', LF will be replaced by CRLF the next time Git touches it
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
+$ git commit -am "we are commiting the inital content"
+[master (root-commit) 3b6b7c2] we are commiting the inital content
+ 1 file changed, 1 insertion(+)
+ create mode 100644 merge.txt
+
+Step 2
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
+$ git checkout -b new_branch_to_merge_later
+Switched to a new branch 'new_branch_to_merge_later'
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (new_branch_to_merge_later)
+$ echo "totally different content to merge later" > merge.txt
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (new_branch_to_merge_later)
+$ git commit -am "edited the content of merge.txt to cause a conflict"
+warning: in the working copy of 'merge.txt', LF will be replaced by CRLF the next time Git touches it
+[new_branch_to_merge_later 57c90f6] edited the content of merge.txt to cause a conflict
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+Step 3
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (new_branch_to_merge_later)
+$ git checkout master
+Switched to branch 'master'
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
+$ echo "content to append" >> merge.txt
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
+$ git commit -am "appended content to merge.txt"
+warning: in the working copy of 'merge.txt', LF will be replaced by CRLF the next time Git touches it
+[master 9f14b01] appended content to merge.txt
+ 1 file changed, 1 insertion(+)
+
+Step 4
+
+user@LAPTOP-H72TGTB1 MINGW64 ~/Desktop/2019csc050/git-merge-test (master)
+$ git merge new_branch_to_merge_later
+Auto-merging merge.txt
+CONFLICT (content): Merge conflict in merge.txt
+Automatic merge failed; fix conflicts and then commit the result.
